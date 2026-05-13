@@ -1,0 +1,5 @@
+﻿trip_id,vehicle_id,truck_type,route,route_distance,covered_item_count,load_weight,load_volume_m3,transport_cost,penalty_cost,total_cost,volume_utilization,weight_utilization,x_cg,relocation_count,relocation_volume_m3,mode
+Q3S_001,Q3S_V001,HeavyEV,Depot->S1->S2->Depot,95.0,22,1525,5.553,845.24375,0.0,845.24375,0.123598,0.127083,474.459016,0,0.0,strict
+Q3S_002,Q3S_V002,HeavyEV,Depot->S3->S6->Depot,160.25,29,2645,9.1845,885.293063,0.0,885.293063,0.204427,0.220417,389.395085,0,0.0,strict
+Q3S_003,Q3S_V003,HeavyEV,Depot->S5->S4->Depot,244.05,37,3555,7.9,940.999887,0.0,940.999887,0.175837,0.29625,424.606188,0,0.0,strict
+Q3S_004,Q3S_V004,HeavyEV,Depot->S7->S8->Depot,227.15,19,1180,3.438,904.26185,0.0,904.26185,0.076522,0.098333,360.0,0,0.0,strict

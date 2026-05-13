@@ -1,0 +1,2 @@
+﻿strategy,vehicle_count,total_cost,route_set
+flexible,3,2770.781835,Depot->S1->S2->S3->Depot | Depot->S5->S4->Depot | Depot->S6->S8->S7->Depot

@@ -1,0 +1,2 @@
+﻿truck_type,loaded_item_count,unloaded_item_count,load_weight,load_volume_m3,volume_utilization,weight_utilization,x_cg,score,objective_tuple,cg_margin,min_support_margin,min_load_bearing_margin,strategy,seed,validation_status,hard_violation_count
+HeavyEV,138,74,11130,35.728,0.795228,0.9275,356.2646,"(138, 35728000.0, 11130, -0.005188055305979825, 116.26460017969453, 0.010000000000000009, 0.0)","(138, 35728000.0, 11130, -0.005188055305979825, 116.26460017969453, 0.010000000000000009, 0.0)",116.2646,0.01,0.0,category,5,PASS,0

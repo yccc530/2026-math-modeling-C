@@ -1,0 +1,2 @@
+﻿strategy,vehicle_count,total_cost,route_set
+block,4,3643.44131,Depot->S1->S2->S3->Depot | Depot->S5->S4->Depot | Depot->S6->S7->Depot | Depot->S8->Depot

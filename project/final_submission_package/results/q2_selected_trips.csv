@@ -1,0 +1,5 @@
+﻿trip_id,vehicle_id,truck_type,route,route_distance,covered_item_count,load_weight,load_volume_m3,transport_cost,penalty_cost,total_cost,volume_utilization,weight_utilization,x_cg,relocation_count,relocation_volume_m3,mode
+STRICT_001,HeavyEV_001,HeavyEV,Depot->S1->Depot,60.0,28,5200,8.832,839.6,0.0,839.6,0.196581,0.433333,364.692308,0,0.0,strict
+STRICT_002,HeavyEV_002,HeavyEV,Depot->S2->Depot,90.0,77,2225,30.84,846.0125,0.0,846.0125,0.686432,0.185417,350.483146,0,0.0,strict
+STRICT_003,HeavyEV_003,HeavyEV,Depot->S3->Depot,120.0,82,7910,33.6,895.46,0.0,895.46,0.747863,0.659167,368.230088,0,0.0,strict
+STRICT_004,LightEV_004,LightEV,Depot->S2->S3->Depot,145.0,16,415,3.0,422.707,0.0,422.707,0.178571,0.092222,232.739759,0,0.0,strict

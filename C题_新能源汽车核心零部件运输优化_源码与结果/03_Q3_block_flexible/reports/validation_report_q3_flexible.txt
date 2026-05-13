@@ -1,0 +1,6 @@
+﻿PASS: no violations found
+loaded_item_count: 107
+lifo_pair_checks: 1122
+lifo_violation_count: 0
+relocation_count: 0
+relocation_volume_m3: 0.000000

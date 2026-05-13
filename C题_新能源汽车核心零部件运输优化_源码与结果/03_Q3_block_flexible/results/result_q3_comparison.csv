@@ -1,0 +1,4 @@
+﻿strategy,vehicle_count,transport_cost,relocation_count,relocation_volume_m3,relocation_volume_ratio,penalty_cost,total_cost,loaded_volume_m3,mean_volume_utilization,mean_weight_utilization,validation_status,hard_violation_count
+strict,4,3575.79855,0,0.0,0.0,0.0,3575.79855,26.0755,0.145096,0.185521,PASS,0
+block,4,3643.44131,0,0.0,0.0,0.0,3643.44131,26.0755,0.145096,0.185521,PASS,0
+flexible,3,2770.781835,0,0.0,0.0,0.0,2770.781835,26.0755,0.193461,0.247361,PASS,0

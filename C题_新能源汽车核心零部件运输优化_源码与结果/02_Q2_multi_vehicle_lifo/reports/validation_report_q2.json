@@ -1,0 +1,15 @@
+﻿{
+  "status": "PASS",
+  "hard_violation_count": 0,
+  "soft_violation_count": 0,
+  "lifo_pair_checks": 39,
+  "lifo_violation_count": 0,
+  "relocation_count": 0,
+  "relocation_volume_m3": 0.0,
+  "relocation_volume_ratio": 0.0,
+  "loaded_item_count": 203,
+  "duplicate_item_count": 0,
+  "missing_item_count": 0,
+  "violations": [],
+  "soft_violations": []
+}

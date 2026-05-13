@@ -1,0 +1,7 @@
+﻿claim_id,report_section,claimed_value,source_file,source_row_or_key,verified
+C001,Q1,138,results/result_q1_summary.csv,loaded_item_count,True
+C002,Q1,0.795228,results/result_q1_summary.csv,volume_utilization,True
+C003,Q2,3003.7795,results/result_q2_trips.csv,sum(total_cost),True
+C004,Q2,4,results/result_q2_trips.csv,row count,True
+C005,Q3,3575.79855,results/result_q3_comparison.csv,strict.total_cost,True
+C006,Q3,2770.781835,results/result_q3_comparison.csv,flexible.total_cost,True

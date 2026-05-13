@@ -1,0 +1,4 @@
+﻿strategy,total_cost,vehicle_count,relocation_volume_m3,average_volume_utilization
+strict,3575.79855,4,0.0,0.145096
+block,3643.44131,4,0.0,0.145096
+flexible,2770.781835,3,0.0,0.193461
