@@ -1,45 +1,52 @@
-﻿# 01_Q1 单车三维装箱与重心控制
+# 01_Q1 单车三维装箱与重心控制
 
-本目录对应问题 1，研究车型 1 HeavyEV 的单车三维装箱问题。目标是在所有硬约束通过的前提下，尽可能提高装入件数、体积利用率和载重利用率，并控制 X 方向重心位置。
+本目录对应问题一。问题一在 HeavyEV 单车车厢内对场景 A 货物进行三维装载优化，要求满足车厢边界、空间不重叠、载重、重心、类别规则、支撑和承重等硬约束，并尽可能提高装载件数、体积利用率和载重利用率。
 
-## 优化目标
+## 一、求解目标
 
-问题 1 使用字典序目标函数评价可行解：
+问题一采用硬约束优先的字典序目标：
 
 1. 最大化装入货物件数；
 2. 在件数相同的情况下最大化装入体积；
 3. 在前两项相近时最大化装入重量；
-4. 最小化 X 方向重心偏移；
-5. 提高重心、支撑和承重等安全裕度。
+4. 最小化车辆 X 方向重心偏移；
+5. 提高支撑、承重和重心安全裕度。
 
-## 主要算法
+## 二、核心算法
 
-- extreme point / corner point 三维装箱启发式；
-- 多排序策略：类别优先、体积降序、重量降序、底面积降序、密度降序、随机扰动等；
-- 多合法姿态枚举；
+- 极点/角点三维装箱启发式；
+- 类别优先、体积降序、重量降序、底面积降序、密度降序和随机扰动等多排序策略；
+- 按货物类别枚举合法姿态；
 - 多随机种子搜索；
-- 重心修正与局部插入修复；
-- 独立验证器硬约束复核。
+- 重心修正、空隙插入和局部修复；
+- 独立验证器复核硬约束。
 
-## 文件说明
+## 三、目录内容
 
-- `code/q1_solver.py`：问题 1 求解器。
-- `code/q1_objective.py`：问题 1 字典序目标函数、上界估计和 gap 计算。
-- `results/result_q1_loading.csv`：最终逐件装载坐标与姿态。
-- `results/result_q1_summary.csv`：最终装载指标摘要。
-- `results/result_q1_unloaded.csv`：未装入货物记录。
-- `results/q1_best_solutions.csv`：多起点搜索得到的可行解记录。
-- `plots/q1_3d_plot.png`：最终三维装载图。
-- `plots/q1_pareto_front.png`：可行解前沿图。
-- `reports/validation_report_q1.json`、`reports/validation_report_q1.txt`：独立验证报告。
-- `reports/q1_optimization_report.md`：优化过程、上界估计与 gap 说明。
+- `code/q1_solver.py`：问题一求解主程序。
+- `code/q1_objective.py`：字典序目标函数、上界估计和 gap 计算。
+- `results/result_q1_loading.csv`：最终逐件装载坐标、姿态和车辆编号。
+- `results/result_q1_summary.csv`：装载件数、体积利用率、载重利用率、重心等摘要指标。
+- `results/result_q1_unloaded.csv`：未装入货物清单。
+- `results/q1_best_solutions.csv`：多起点搜索得到的候选可行方案记录。
+- `plots/q1_3d_plot.png`：HeavyEV 最终三维装载图。
+- `plots/q1_pareto_front.png`：多起点可行解前沿图。
+- `reports/validation_report_q1.json`：结构化验证报告。
+- `reports/validation_report_q1.txt`：文本验证报告。
+- `reports/q1_optimization_report.md`：问题一优化过程、上界估计和 gap 说明。
 
-## 复核方式
+## 四、复现实验
 
-从项目根目录运行：
+在项目根目录执行完整流程：
+
+```bash
+python run_project.py
+```
+
+若仅需检查模块导入：
 
 ```bash
 python run_project.py --check-imports
 ```
 
-若需要重新生成问题 1 结果，可运行完整主程序后由 `sync_outputs.py` 同步输出到本目录。
+运行完成后，问题一相关输出会同步到本目录的 `results/`、`plots/` 和 `reports/` 子目录中。

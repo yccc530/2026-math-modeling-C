@@ -1,22 +1,32 @@
-﻿# 公共运行脚本说明
+# 公共运行脚本说明
 
-本目录保存完整求解、第二阶段优化、报告生成和审计相关脚本。整理版项目建议通过根目录 `run_project.py` 调用这些脚本，以保证导入路径、输出目录和结果同步逻辑一致。
+本目录保存项目级运行脚本，负责组织四个问题的求解、验证、图表生成、报告生成和最终审计。为保证路径一致性，推荐通过项目根目录的 `run_project.py` 调用本目录中的脚本。
 
-## 主要文件
+## 一、主要脚本
 
-- `main.py`：完整求解流程入口，依次运行 Q1、Q2、Q3、验证、报告生成和审计。
-- `run_second_stage_optimization.py`：第二阶段优化流程入口，记录优化仪表盘、上下界 gap、验证器测试和最终提交检查。
-- `report_generator.py`：根据结果 CSV 和验证报告生成技术报告草稿。
-- `audit.py`：项目级最终审计程序。
-- `requirements.txt`：运行所需 Python 依赖。
+- `main.py`：完整主流程入口，依次运行问题一、问题二、问题三、独立验证、图表生成、报告生成和审计。
+- `run_second_stage_optimization.py`：第二阶段优化入口，记录优化指标、生成上下界分析、运行验证器对抗测试并输出提交检查材料。
+- `report_generator.py`：读取结果 CSV 与验证报告，生成 Markdown 技术报告草稿。
+- `audit.py`：执行项目级审计，检查数据、约束、结果文件、图表和报告一致性。
+- `second_stage_reports.py`：生成第二阶段优化总结、最终指标和提交检查清单。
+- `requirements.txt`：Python 依赖清单。
 
-## 运行方式
+## 二、推荐运行命令
 
-从项目根目录运行：
+在项目根目录执行：
 
 ```bash
+python run_project.py --check-imports
 python run_project.py
 python run_project.py --second-stage
 ```
 
-不建议在本目录内直接运行脚本，因为部分输出路径依赖项目根目录。
+其中：
+
+- `--check-imports` 用于检查整理后目录结构下的模块导入是否正常；
+- 不带参数时运行完整求解与结果生成流程；
+- `--second-stage` 用于运行第二阶段优化、审计和提交材料生成流程。
+
+## 三、输出位置
+
+运行过程中会先在项目根目录生成统一的 `results/`、`plots/`、`reports/` 输出目录，再通过 `sync_outputs.py` 同步到各问题目录。分题目录中的结果是论文和附件复核的主要依据。
