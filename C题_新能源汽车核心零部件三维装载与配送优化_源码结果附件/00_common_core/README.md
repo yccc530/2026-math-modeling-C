@@ -13,11 +13,11 @@
 
 ## 运行说明
 
-建议从 `project_organized` 根目录统一运行：
+建议从项目根目录统一运行：
 
 ```bash
 python run_project.py --check-imports
 python run_project.py
 ```
 
-若直接调用本目录下脚本，仍应保持当前工作目录为 `project_organized` 根目录，以确保输出路径和结果同步逻辑一致。
+若直接调用本目录下脚本，仍应保持当前工作目录为项目根目录，以确保输出路径和结果同步逻辑一致。

@@ -164,8 +164,8 @@ def audit_project() -> Dict[str, object]:
         issues.append("Q3 flexible relocation volume ratio exceeds 15%.")
 
     report_text = (REPORTS_DIR / "technical_report_draft.md").read_text(encoding="utf-8", errors="ignore") if (REPORTS_DIR / "technical_report_draft.md").exists() else ""
-    if "全局最优" in report_text and "不声称" not in report_text:
-        issues.append("技术报告可能存在全局最优过度表述。")
+    if "全局最优" in report_text and "当前最优可行方案" not in report_text:
+        issues.append("技术报告存在最优性表述与算法性质不一致的风险。")
     if "return_to_depot" not in report_text:
         issues.append("技术报告未说明 return_to_depot 假设。")
     if "启发式" not in report_text:

@@ -24,7 +24,7 @@ CODE_DIRS = [
 
 
 def find_project_root(start_file: str | Path | None = None) -> Path:
-    """Locate the root directory of ``project_organized``.
+    """Locate the root directory of the organized submission project.
 
     The check is based on the two stable top-level folders that are required by
     the submitted project layout. A fallback to this file's parent is retained

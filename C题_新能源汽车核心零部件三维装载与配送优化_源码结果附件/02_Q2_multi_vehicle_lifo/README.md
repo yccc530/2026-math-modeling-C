@@ -43,7 +43,7 @@
 
 ## 复核方式
 
-从 `project_organized` 根目录运行：
+从项目根目录运行：
 
 ```bash
 python 04_Q4_validation_audit/code/validator.py --csv 02_Q2_multi_vehicle_lifo/results/result_q2_loading.csv --mode strict --scenario q2

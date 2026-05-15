@@ -12,7 +12,7 @@
 
 ## 运行方式
 
-从 `project_organized` 根目录运行：
+从项目根目录运行：
 
 ```bash
 python run_project.py

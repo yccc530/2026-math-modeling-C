@@ -41,7 +41,7 @@
 
 ## 复核方式
 
-从 `project_organized` 根目录运行：
+从项目根目录运行：
 
 ```bash
 python 04_Q4_validation_audit/code/validator.py --csv 03_Q3_block_flexible/results/result_q3_loading_flexible.csv --mode flexible --scenario q3

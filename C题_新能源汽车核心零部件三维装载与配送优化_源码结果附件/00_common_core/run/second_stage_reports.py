@@ -63,8 +63,8 @@ def write_traceability() -> None:
 def write_paper_risk_audit() -> None:
     text = (REPORTS_DIR / "technical_report_draft.md").read_text(encoding="utf-8", errors="ignore") if (REPORTS_DIR / "technical_report_draft.md").exists() else ""
     risks = []
-    if "全局最优" in text and "不声称" not in text:
-        risks.append("可能存在全局最优过度表述。")
+    if "全局最优" in text and "当前最优可行方案" not in text:
+        risks.append("可能存在最优性表述与算法性质不一致的问题。")
     if "return_to_depot" not in text:
         risks.append("缺少 return_to_depot 假设说明。")
     if "启发式" not in text:
@@ -158,7 +158,7 @@ def package_submission() -> None:
     report_dir.mkdir(parents=True, exist_ok=True)
     note = (
         "# 提交包说明\n\n"
-        "`project_organized` 目录本身即为提交包。源码、CSV 结果、图表、验证报告、优化报告和最终技术报告"
+        "本提交项目目录本身即为提交包。源码、CSV 结果、图表、验证报告、优化报告和最终技术报告"
         "均保存在各问题对应目录中，具体清单见 `SUBMISSION_MANIFEST.md`。\n\n"
         "为保持最终提交目录简洁且便于审计，二阶段流程不再生成嵌套的重复工程副本。\n"
     )

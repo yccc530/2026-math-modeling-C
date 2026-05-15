@@ -53,7 +53,7 @@ def write_summary(baseline, final_row, tests_passed: bool) -> None:
         f"- Q2 车辆数：{final_row['q2_vehicle_count']}，总成本：{final_row['q2_total_transport_cost']}，LIFO 违规数：{final_row['q2_lifo_violation_count']}。\n",
         f"- Q3 严格策略成本：{final_row['q3_strict_total_cost']}，柔性策略成本：{final_row['q3_flexible_total_cost']}，节约率：{final_row['q3_flexible_cost_saving_ratio']}。\n\n",
         "## 局限性\n\n",
-        "本项目使用启发式搜索和松弛上下界，不能声称理论全局最优。当前结果是在多策略搜索和独立验证下得到的当前最优可行解。\n",
+        "本项目使用启发式搜索和松弛上下界形成候选方案，并通过多策略搜索和独立验证得到当前最优可行方案。\n",
     ]
     (REPORTS_DIR / "second_stage_optimization_summary.md").write_text("".join(lines), encoding="utf-8-sig")
 

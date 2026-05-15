@@ -17,6 +17,10 @@
 \setCJKmonofont[AutoFakeBold=3]{SimSun}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
 \captionsetup{font=small,labelfont=bf}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\raggedbottom
 
 \newenvironment{pseudocode}
 {\begin{tabular}{p{0.94\textwidth}}}
@@ -317,9 +321,9 @@
 	
 	首先，货物必须位于车厢边界内，即
 	\begin{equation}
-		0\leq x_i,\quad x_i+l_i\leq L,\quad
-		0\leq y_i,\quad y_i+w_i\leq W,\quad
-		0\leq z_i,\quad z_i+h_i\leq H 
+		0\leq x_i,\;x_i+l_i\leq L,\;
+		0\leq y_i,\;y_i+w_i\leq W,\;
+		0\leq z_i,\;z_i+h_i\leq H
 	\end{equation}
 	
 	任意两件已装入货物 $i$ 与 $j$ 不允许发生三维空间重叠，因此需满足至少一个方向上的区间分离
@@ -349,7 +353,7 @@
 	承重约束采用安全侧保守估计。若上方货物 $j$ 与下方货物 $i$ 在 $XY$ 平面存在投影重叠，则按投影重叠面积比例 $\alpha_{ji}$ 分摊重量，货物 $i$ 顶面单位面积承重为
 	\begin{equation}
 		p_i=\frac{\sum_{j\in U(i)}\alpha_{ji}m_j}{A_i/10000}
-		\quad p_i\leq p_{\max}=400\ \mathrm{kg/m^2}
+		,\;p_i\leq p_{\max}=400\ \mathrm{kg/m^2}
 	\end{equation}
 	其中 $U(i)$ 为位于货物 $i$ 上方且与其顶面投影相交的货物集合，$A_i=l_iw_i$，分母中的 $10000$ 用于将 cm$^2$ 转换为 m$^2$。
 	
@@ -503,16 +507,16 @@
 		\label{fig:q1_3d}
 	\end{figure}
 	
-	为进一步说明多起点搜索的作用，本文记录了不同起点下的可行装载方案，并绘制体积、重量和重心偏移之间的 Pareto 分布，如图 \ref{fig:q1_pareto} 所示。最终方案在装入件数优先的评价准则下位于候选解前列，体现了字典序目标对题意的适配性。
+	为进一步说明多起点搜索的作用，本文记录了不同起点下的可行装载方案，并绘制体积、重量和重心偏移之间的 Pareto 分布，如图 \ref{fig:q1_pareto} 所示。
 	
 	\begin{figure}[!htbp]
 		\centering
-		\includegraphics[width=0.78\textwidth]{figures/q1_pareto_front.png}
+		\includegraphics[width=0.68\textwidth]{figures/q1_pareto_front.png}
 		\caption{问题一多起点可行解 Pareto 分布}
 		\label{fig:q1_pareto}
 	\end{figure}
 	
-	为了检验启发式搜索稳定性，表 \ref{tab:q1_top_solutions} 给出排名前五的可行方案。由表可见，类别优先排序在多组扰动起点下均能得到质量较好的解，其中第 5 组扰动方案在装入件数和安全约束方面综合最优。
+	图 \ref{fig:q1_pareto} 表明，最终方案在装入件数优先的评价准则下位于候选解前列，体现了字典序目标对题意的适配性。为了检验启发式搜索稳定性，表 \ref{tab:q1_top_solutions} 给出排名前五的可行方案。由表可见，类别优先排序在多组扰动起点下均能得到质量较好的解，其中第 5 组扰动方案在装入件数和安全约束方面综合最优。
 	
 	\begin{table}[H]
 		\centering
@@ -569,8 +573,8 @@
 	
 	设货物 $a$ 与 $b$ 分别属于同一车次，且货物 $b$ 所在站点先于货物 $a$ 卸货。若货物 $a$ 位于货物 $b$ 朝车门方向的移出通道上，则 $a$ 会阻挡 $b$ 卸货。按照题目给定规则，阻挡关系可表示为
 	\begin{equation}
-		x_a+l_a>x_b,\quad
-		[y_a,y_a+w_a]\cap[y_b,y_b+w_b]\neq\varnothing,\quad
+		x_a+l_a>x_b,\;
+		[y_a,y_a+w_a]\cap[y_b,y_b+w_b]\neq\varnothing,\;
 		[z_a,z_a+h_a]\cap[z_b,z_b+h_b]\neq\varnothing 
 	\end{equation}
 	严格 LIFO 模式下，上式三项不能同时成立。候选车次生成后，本文对同车所有货物对逐一检查上述条件，若存在任意 LIFO 阻挡，则该候选车次被直接剔除。这样可以避免仅凭站点分区近似说明 LIFO 可行，而保证最终路线和装载坐标在逐件卸货层面上可验证。
@@ -589,7 +593,7 @@
 	\end{equation}
 	由于每件货物必须被配送且不能重复配送，集合覆盖约束写为
 	\begin{equation}
-		\sum_{j\in\mathcal J:i\in\mathcal I_j}y_j=1,\quad \forall i\in\mathcal I 
+		\sum_{j\in\mathcal J:i\in\mathcal I_j}y_j=1,\; \forall i\in\mathcal I 
 	\end{equation}
 	目标函数为最小化被选车次总运输成本
 	\begin{equation}
@@ -685,21 +689,23 @@
 	
 	车辆利用率对比如图 \ref{fig:q2_utilization} 所示。由图可见，HeavyEV 车次承担主要货运任务，LightEV 车次用于补充跨站点尾货，从而避免为少量剩余货物额外启用大车型。
 	
-	\begin{figure}[!htbp]
+	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.78\textwidth]{figures/q2_vehicle_utilization.png}
+		\includegraphics[width=0.66\textwidth]{figures/q2_vehicle_utilization.png}
 		\caption{问题二各车辆装载利用率对比}
 		\label{fig:q2_utilization}
 	\end{figure}
 	
-	最终三维装载坐标方案如图 \ref{fig:q2_3d} 所示。图中不同车辆分别展示其车厢内货物空间分布，所有货物均位于车辆边界内，且装载坐标能够由独立验证机制逐项复核。
+	进一步观察车辆内部坐标级摆放，最终三维装载坐标方案如图 \ref{fig:q2_3d} 所示。图中不同车辆分别展示其车厢内货物空间分布，所有货物均位于车辆边界内，装载坐标能够由独立验证机制逐项复核。
 	
-	\begin{figure}[!htbp]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.98\textwidth]{figures/q2_3d_plot.png}
 		\caption{问题二多车辆三维装载坐标结果}
 		\label{fig:q2_3d}
 	\end{figure}
+	
+	图 \ref{fig:q2_3d} 表明，在严格 LIFO 约束下，各车次仍能形成边界清晰的三维装载结构。其中 S2 与 S3 的尾货由 LightEV 跨站点配送，兼顾了车辆成本和卸货可达性。
 	
 	\modelsubpoint{下界估计与验证结果}
 	
@@ -730,7 +736,7 @@
 	
 	候选车次选择过程的成本变化如图 \ref{fig:q2_convergence} 所示。随着不可行车次剔除、支配剪枝和局部替换的进行，算法最终稳定在当前可行成本水平。
 	
-	\begin{figure}[H]
+	\begin{figure}[!htbp]
 		\centering
 		\includegraphics[width=0.76\textwidth]{figures/q2_cost_convergence.png}
 		\caption{问题二候选方案成本收敛过程}
@@ -751,9 +757,9 @@
 	
 	设第 $g$ 种货物的尺寸为 $(l_g,w_g,h_g)$，重量为 $m_g$，数量为 $n_g$。生成数据需满足
 	\begin{equation}
-		40\leq l_g\leq120,\quad
-		40\leq w_g\leq80,\quad
-		40\leq h_g\leq60,\quad
+		40\leq l_g\leq120,\;
+		40\leq w_g\leq80,\;
+		40\leq h_g\leq60,\;
 		25\leq m_g\leq350 
 	\end{equation}
 	同时要求每个站点至少有一种货物需求，且类别属于 $\{\mathrm{I},\mathrm{II},\mathrm{III},\mathrm{IV},\mathrm{V}\}$。本文构造了 10 组固定候选数据集，并选取编号为 2026 的数据集用于后续策略比较。该数据集包含 20 种货物、107 件货物，总重量 8905 kg，总体积 26.0755 m$^3$，覆盖全部 8 个站点，类别集合完整。
@@ -830,7 +836,7 @@
 	
 	柔性策略的倒箱惩罚参数取
 	\begin{equation}
-		\eta\in\{0,10,20,40,80\},\quad
+		\eta\in\{0,10,20,40,80\},\;
 		\mu\in\{0,10,30,60,100\}
 	\end{equation}
 	对每组参数记录车辆数、运输成本、倒箱件数、倒箱体积、惩罚成本和总成本。若柔性策略在较高惩罚参数下仍优于严格 LIFO，则表明其优势主要来自路线与车辆数优化，而不是依赖低倒箱惩罚。
@@ -864,12 +870,14 @@
 	
 	不同装卸策略成本与车辆数对比如图 \ref{fig:q3_comparison} 所示。
 	
-	\begin{figure}[!htbp]
+	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.78\textwidth]{figures/q3_comparison_plot.png}
+		\includegraphics[width=0.72\textwidth]{figures/q3_comparison_plot.png}
 		\caption{问题三不同装卸策略成本与车辆数对比}
 		\label{fig:q3_comparison}
 	\end{figure}
+	
+	由图 \ref{fig:q3_comparison} 可见，柔性 LIFO 在车辆数和总成本两个指标上同时占优，说明其改进并非单纯依赖倒箱惩罚设定，而是来源于更灵活的路线组合和车辆合并。
 	
 	\modelsubpoint{车辆路线、装载与 Pareto 结果}
 	
@@ -893,11 +901,16 @@
 		\end{tabular}
 	\end{table}
 	
-	柔性策略的三维装载效果如图 \ref{fig:q3_flexible_3d} 所示。该图给出 3 辆 HeavyEV 的坐标级装载状态，表明多站点货物能够在车辆内部形成可复核的三维摆放方案。
+	\modelsubpoint{柔性策略三维装载结果}
 	
-	\begin{figure}[!htbp]
+	柔性策略的三维装载效果如图 \ref{fig:q3_flexible_3d} 所示。该图给出 3 辆 HeavyEV 的坐标级装载状态，表明多站点货物能够在车辆内部形成可复核的三维摆放方案。
+	从装载组织方式看，三个车次分别承担不同站点簇的货物需求，车厢内部按照站点顺序形成相对清晰的空间分布。第一车次覆盖 S1--S3，路线短、站点连续，适合承担题目给定基础站点的联合配送；第二车次服务 S5 与 S4，货物量和载重较均衡；第三车次覆盖 S6、S8、S7，通过一个 HeavyEV 完成较分散站点的合并配送。该安排既减少了车辆启用数，又避免了将少量货物拆分为多个低装载率车次。
+	
+	需要指出的是，柔性 LIFO 并不意味着任意放宽卸货可达性。本文在生成装载坐标后仍逐对检查阻挡关系，并将可能阻挡转化为倒箱统计。当前方案中倒箱件数为 0，说明在该数据集下，路线重排和车辆合并已经能够消除实际倒箱需求，柔性策略的优势主要体现在候选方案空间更大，而非依赖额外装卸操作。
+	
+	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.88\textwidth]{figures/q3_flexible_3d_plot.png}
+		\includegraphics[width=0.96\textwidth]{figures/q3_flexible_3d_plot.png}
 		\caption{问题三柔性 LIFO 策略三维装载结果}
 		\label{fig:q3_flexible_3d}
 	\end{figure}
@@ -914,6 +927,9 @@
 	\end{figure}
 	
 	敏感性分析结果表明，在 $\eta\in\{0,10,20,40,80\}$、$\mu\in\{0,10,30,60,100\}$ 的全部组合下，柔性策略的倒箱件数和倒箱体积均为 0，因此惩罚成本保持为 0，总成本稳定为 2770.7818 元，且均优于严格 LIFO 策略。敏感性热力图如图 \ref{fig:q3_heatmap} 所示。
+	该结果具有两层含义：其一，当前柔性策略并未通过降低倒箱惩罚来获得表面成本优势，因为所有参数组合下惩罚项均为 0；其二，若实际运输场景中倒箱单价发生变化，只要装载坐标仍保持无阻挡，最终总成本便不会随 $\eta$ 和 $\mu$ 波动。因此，该方案对装卸惩罚参数具有较好的鲁棒性。
+	
+	从策略比较角度看，严格 LIFO 更强调卸货顺序的硬性可达，区块化装载在严格与柔性之间提供结构化折中，而柔性 LIFO 则扩大了路线和装载联合搜索空间。本文实例中三类策略均满足硬约束，但柔性策略在车辆数量和运输成本上同时取得更优表现，说明适度引入倒箱统计机制有助于发现严格分层策略难以覆盖的优良组合方案。
 	
 	\begin{figure}[H]
 		\centering
@@ -959,17 +975,18 @@
 	
 	独立验证机制的总体流程如图 \ref{fig:q4_validation_flow} 所示。
 	
-	\begin{figure}[H]
+	\begin{figure}[!htbp]
 		\centering
+		\resizebox{0.72\textwidth}{!}{%
 		\begin{tikzpicture}[
-			node distance=0.55cm,
+			node distance=0.44cm,
 			vnode/.style={
 				rectangle,
 				rounded corners=2pt,
 				draw=black!65,
 				fill=cyan!6,
 				minimum width=5.8cm,
-				minimum height=0.72cm,
+				minimum height=0.62cm,
 				align=center,
 				font=\small
 			},
@@ -979,7 +996,7 @@
 				draw=black!65,
 				fill=yellow!10,
 				minimum width=5.8cm,
-				minimum height=0.72cm,
+				minimum height=0.62cm,
 				align=center,
 				font=\small
 			},
@@ -989,7 +1006,7 @@
 				draw=black!70,
 				fill=green!8,
 				minimum width=5.8cm,
-				minimum height=0.72cm,
+				minimum height=0.62cm,
 				align=center,
 				font=\small
 			},
@@ -1008,6 +1025,7 @@
 			\draw[arrow] (vehicle) -- (complete);
 			\draw[arrow] (complete) -- (report);
 		\end{tikzpicture}
+		}
 		\caption{独立验证机制总体流程}
 		\label{fig:q4_validation_flow}
 	\end{figure}
@@ -1062,13 +1080,13 @@
 	
 	对同一车次中的任意两件货物，验证机制根据路线中目的站点先后关系判断其卸货顺序。若货物 $b$ 先卸、货物 $a$ 后卸，且满足
 	\begin{equation}
-		x_a+l_a>x_b,\quad
-		Y_a\cap Y_b\neq\varnothing,\quad
+		x_a+l_a>x_b,\;
+		Y_a\cap Y_b\neq\varnothing,\;
 		Z_a\cap Z_b\neq\varnothing
 	\end{equation}
 	则在严格模式下记为 LIFO 硬性违规；在柔性模式下记为一次倒箱，并累计倒箱体积。配送完整性检测则将最终方案中的货物编号与需求清单比对
 	\begin{equation}
-		N_{\mathrm{miss}}=|\mathcal I\setminus\widehat{\mathcal I}|,\quad
+		N_{\mathrm{miss}}=|\mathcal I\setminus\widehat{\mathcal I}|,\;
 		N_{\mathrm{dup}}=\sum_{i\in\widehat{\mathcal I}}\max(0,c_i-1)
 	\end{equation}
 	其中 $\mathcal I$ 为应配送货物集合，$\widehat{\mathcal I}$ 为最终方案中出现的货物集合，$c_i$ 为货物 $i$ 出现次数。若 $N_{\mathrm{miss}}>0$ 或 $N_{\mathrm{dup}}>0$，则判定配送完整性不合格。
@@ -1188,6 +1206,7 @@
 	
 	\begin{table}[H]
 		\centering
+		\small
 		\caption{模型结果可行性检验汇总}
 		\label{tab:model_check_summary}
 		\begin{tabular}{l c c c c}
@@ -1260,6 +1279,8 @@
 	
 	\vspace{0.5em}
 	
+	{\small
+	\begin{sloppypar}
 	\begin{enumerate}
 		\item[{[1]}] Dantzig G B, Ramser J H. The truck dispatching problem[J]. Management Science, 1959, 6(1):80-91.
 		
@@ -1285,6 +1306,8 @@
 		
 		\item[{[12]}] Wei L J, Zhang Z Z, Lim A. An adaptive variable neighborhood search for a heterogeneous fleet vehicle routing problem with three-dimensional loading constraints[J]. IEEE Computational Intelligence Magazine, 2014, 9(4):18-30.
 	\end{enumerate}
+	\end{sloppypar}
+	}
 	
 	\newpage
 	\appendix

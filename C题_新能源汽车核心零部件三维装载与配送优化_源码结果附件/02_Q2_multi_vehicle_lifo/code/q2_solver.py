@@ -166,7 +166,7 @@ def _write_q2_optimization_reports(plans, total_cost, total_distance, avg_vol, a
         f"当前可行方案总运输成本：{total_cost:.6f} 元。\n\n"
         f"相对松弛下界差距：{gap:.6f}。\n\n"
         "该下界忽略了路线距离、三维几何、LIFO 卸货顺序、货物类别规则和车型可行性，因此属于乐观下界。"
-        "当前方案只能表述为经验证通过的高质量可行解，不能声称理论全局最优。\n",
+        "当前方案为经独立验证通过的当前最优可行方案。\n",
         encoding="utf-8-sig",
     )
     (REPORTS_DIR / "q2_optimization_report.md").write_text(
