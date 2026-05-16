@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.15)  16 MAY 2026 01:42
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.15)  16 MAY 2026 15:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1197,15 +1197,21 @@ File: figures/q1_3d_plot.png Graphic file (type bmp)
 <figures/q1_3d_plot.png>
 File: figures/q1_pareto_front.png Graphic file (type bmp)
 <figures/q1_pareto_front.png>
- [9] [10] [11] [12]
+ [9] [10] [11]
+Overfull \hbox (3.26547pt too wide) in paragraph at lines 666--667
+[]\TU/SimSun(1)/m/n/12 从 车 辆 类 型 看，| \TU/lmr/m/n/12 HeavyEV \TU/SimSun(1)/m/n/1
+2 适 合 承 担 大 批 量、|  重 量 较 高 或 体 积 较 大 的 站 点 需 求；| \TU/lmr/m/n/12 LightEV
+ []
+
+[12]
 File: figures/q2_vehicle_utilization.png Graphic file (type bmp)
 <figures/q2_vehicle_utilization.png>
 File: figures/q2_3d_plot.png Graphic file (type bmp)
 <figures/q2_3d_plot.png>
- [13]
+ [13] [14]
 File: figures/q2_cost_convergence.png Graphic file (type bmp)
 <figures/q2_cost_convergence.png>
- [14] [15] [16] [17]
+ [15] [16] [17]
 File: figures/q3_comparison_plot.png Graphic file (type bmp)
 <figures/q3_comparison_plot.png>
  [18]
@@ -1213,23 +1219,23 @@ File: figures/q3_flexible_3d_plot.png Graphic file (type bmp)
 <figures/q3_flexible_3d_plot.png>
 File: figures/q3_pareto_front.png Graphic file (type bmp)
 <figures/q3_pareto_front.png>
+ [19]
 File: figures/q3_sensitivity_heatmap.png Graphic file (type bmp)
 <figures/q3_sensitivity_heatmap.png>
- [19]
-[20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] (Problem_C.aux
-)
+ [20] [21] [22] [23] [24] [25] [26]
+[27] [28] [29] [30] [31] [32] [33] (Problem_C.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22645 strings out of 402807
- 525562 string characters out of 5451759
- 945479 words of memory out of 5000000
- 51174 multiletter control sequences out of 15000+600000
- 635812 words of font info for 98 fonts, out of 8000000 for 9000
+ 22664 strings out of 402807
+ 525913 string characters out of 5451759
+ 945480 words of memory out of 5000000
+ 51186 multiletter control sequences out of 15000+600000
+ 637535 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,13n,111p,1197b,842s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Problem_C.pdf (33 pages).
+Output written on Problem_C.pdf (34 pages).
